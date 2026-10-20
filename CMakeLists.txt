@@ -35,7 +35,7 @@ set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
 
 target_compile_definitions(objlib PUBLIC $<$<CONFIG:Debug>:FFI_DEBUG>)
 
-add_library(ffi_static STATIC $<TARGET_OBJECTS:objlib>)
+add_library(ffi_static STATIC $<TARGET_OBJECTS:objlib> ${OBJECTS_LIST})
 
 if(MSVC)
     add_definitions(-DFFI_BUILDING_DLL)
